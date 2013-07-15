@@ -17,7 +17,7 @@
       <img ng-src="{{event.imageUrl}}" alt="{{event.name}}" />
       <div class="row">
         <div class="span11">
-          <h2>{{event.name}}</h2>
+          <h2 ng-bind="event.name"></h2>
         </div>
       </div>
       <div class="row">
@@ -37,12 +37,40 @@
           </address>
         </div>
       </div>
+      <hr />
+      <h3>Sessions</h3>
+      <ul class="thumbnails">
+        <li ng-repeat="session in event.sessions">
+          <div class="row session">
+            <div class="span0 well votingWidget">
+              <div class="votingButton" ng-click="upVoteSession(session)">
+                <i class="icon-chevron-up"></i>
+              </div>
+              <div class="badge">
+                <div>{{session.upVoteCount}}</div>
+              </div>
+              <div class="votingButton" ng-click="downVoteSession(session)">
+                <i class="icon-chevron-down"></i>
+              </div>
+            </div>
+            <div class="well span9">
+              <h4 class="well-title">{{session.name}}</h4>
+              <h6 style="margin-top:-10px">{{session.creatorName}}</h6>
+              <span>Duration: {{session.duration}}</span>
+              <br />
+              <span>Level: {{session.level}}</span>
+              <p>{{session.abstract}}</p>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
 
     <script src="/lib/jquery.min.js" type="text/javascript"></script>
     <script src="/lib/underscore.min.js" type="text/javascript"></script>
     <script src="/lib/bootstrap.min.js" type="text/javascript"></script>
     <script src="/lib/angular/angular.js" type="text/javascript"></script>
+    <script src="/lib/angular/angular-sanitize.js" type="text/javascript"></script>
     <script src="/js/app.js" type="text/javascript"></script>
     <script src="/js/controllers/EventController.js" type="text/javascript"></script>
   </div>
