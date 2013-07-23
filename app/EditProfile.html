@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="eventsApp">
+<head>
+  <meta charset="utf8" />
+  <title>Event Registration</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+  <div class="container-fluid" ng-controller="EditProfileController">
+    <form name="profileForm">
+      <div class="row-fluid">
+        <div class="span3">
+          <img ng-src="{{getGravatarUrl(user.emailAddress)}}" />
+        </div>
+        <div class="span3">
+          <fieldset>
+            <label for="userName">User Name:</label>
+            <input type="text" required ng-pattern="/^[-A-Za-z0-9]{2,20}$/" id="userName" ng-model="user.userName" placeholder="Username" />
+            <label for="password">Password:</label>
+            <input type="password" required id="password" ng-model="user.password" placeholder="Password" />
+          </fieldset>
+          <div style="margin-top:15px">
+            <fieldset>
+              <label for="Name">Name:</label>
+              <input type="text" placeholder="Name" id="Name" ng-model="user.name" />
+              <label for="emailAddress">Email Address:</label>
+              <input type="email" required id="emailAddress" ng-model="user.emailAddress" placeholder="Email Address" />
+            </fieldset>
+          </div>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span6 offset3">
+          <label for="bio">Bio:</label>
+          <textarea style="width:97%; color:#52575c" rows="6" placeholder="Bio" id="bio" ng-model="user.bio"></textarea>
+          <br />
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="button" class="btn btn-default">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script src="/lib/jquery.min.js" type="text/javascript"></script>
+  <script src="/lib/underscore.min.js" type="text/javascript"></script>
+  <script src="/lib/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/lib/angular/angular.js" type="text/javascript"></script>
+  <script src="/lib/angular/angular-sanitize.js" type="text/javascript"></script>
+  <script src="/js/app.js" type="text/javascript"></script>
+  <script src="/lib/md5.js" type="text/javascript"></script>
+  <script src="/js/controllers/EventController.js" type="text/javascript"></script>
+  <script src="/js/services/GravatarUrlBuilder.js" type="text/javascript"></script>
+  <script src="/js/controllers/EditProfileController.js" type="text/javascript"></script>
+  <script src="/js/filters.js" type="text/javascript"></script>
+</body>
+</html>

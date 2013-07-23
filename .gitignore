@@ -1,3 +1,4 @@
 logs/*
 !.gitkeep
 .DS_Store
+app/.DS_Store
